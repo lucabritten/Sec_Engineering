@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <time.h>
 #include <pwd.h>
+#include <errno.h>
+#include <string.h>
 
 int main(int argc, char *argv[]) {
     if (argc < 2) {
@@ -15,7 +17,8 @@ int main(int argc, char *argv[]) {
         struct stat file;
 
         if (lstat(argv[i], &file) == -1) {
-            perror("lstat failed");
+            fprintf(stderr, "Error for file '%s': ", argv[i]);
+            perror("");
             continue;
         }
 
@@ -41,10 +44,10 @@ int main(int argc, char *argv[]) {
         printf("\tGID: %d\n", file.st_gid);
         printf("\tZugriffsbits: %o\n", file.st_mode & 0777);
 
-        printf("\tLast access: %s\n", ctime(&file.st_atime));
-        printf("\tLast inode change: %s\n", ctime(&file.st_ctime));
-        printf("\tLast file change: %s\n", ctime(&file.st_mtime));
-        printf("\tFile creation: %s\n", ctime(&file.st_birthtime));
+        printf("\tLast access: %s", ctime(&file.st_atime));
+        printf("\tLast inode change: %s", ctime(&file.st_ctime));
+        printf("\tLast file change: %s", ctime(&file.st_mtime));
+        printf("\tFile creation: %s", ctime(&file.st_birthtime));
     }
     return 0;
 }
