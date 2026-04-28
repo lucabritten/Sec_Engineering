@@ -2,15 +2,14 @@
 #include <time.h>
 
 int main(void) {
-	time_t raw_time;
+	time_t seconds;
 	struct tm *info;
 	char buffer[50];
 
-	time(&raw_time);
+	time(&seconds);
 
-	info = localtime(&raw_time);
+	info = localtime(&seconds);
 
 	strftime(buffer, 50,"%a %b  %d %X %Z %Y", info);
 	printf("%s\n",buffer);
 }
-
