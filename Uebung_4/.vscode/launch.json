@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/lucabritten/Documents/1. Studium/4. Semester/4_Security-Engineering/1_Uebungen/Uebung_4",
+      "program": "/Users/lucabritten/Documents/1. Studium/4. Semester/4_Security-Engineering/1_Uebungen/Uebung_4/build/Debug/outDebug"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 if [ $# -eq 0 ]
 then
-    echo "ERROR: No args available"
+    echo "ERROR: Keine Übergebenen Argumente. Verwendung ./hallo.sh Alice Bob"
     exit 1
 fi
 

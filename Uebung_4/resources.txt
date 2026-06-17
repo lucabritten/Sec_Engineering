@@ -1,0 +1,4 @@
+https://www.geeksforgeeks.org/c/fork-system-call/
+https://www.ionos.com/digitalguide/websites/web-development/execvp/
+https://www.geeksforgeeks.org/c/exec-family-of-functions-in-c/
+https://man.netbsd.org/NetBSD-7.1.2/acorn32/setpriority.2

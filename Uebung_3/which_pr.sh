@@ -8,20 +8,14 @@ fi
 
 PROGRAMM="$1"
 
-OLD_IFS="$IFS"
-IFS=":"
-
-for DIR in $PATH
+for DIR in $(echo "$PATH" | sed 's/:/ /g')
 do
     if [ -x "$DIR/$PROGRAMM" ]
     then
         echo "$DIR/$PROGRAMM"
-        IFS="$OLD_IFS"
         exit 0
     fi
- done
-
-IFS="$OLD_IFS"
+done
 
 echo "Programm nicht gefunden"
 exit 1

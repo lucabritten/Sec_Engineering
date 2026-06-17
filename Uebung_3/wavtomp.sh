@@ -6,6 +6,16 @@ then
     exit 1
 fi
 
+case "$1" in
+    *.wav)
+        ;;
+    *)
+        echo "ERROR: Datei muss auf .wav enden"
+        exit 1
+        ;;
+esac
+
+
 INPUT="$1"
 OUTPUT="${INPUT%.wav}.mp3"
 

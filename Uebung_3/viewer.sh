@@ -11,22 +11,30 @@ TYPE=$(file "$FILE")
 
 if echo "$TYPE" | grep -q "JPEG"
 then
-    xv "$FILE"
+    PROGRAM="timg"
 
 elif echo "$TYPE" | grep -q "PDF"
 then
-    xpdf "$FILE"
+    PROGRAM="xpdf"
 
 elif echo "$TYPE" | grep -q "text"
 then
-    less "$FILE"
+    PROGRAM="less"
 
 elif echo "$TYPE" | grep -q "OpenDocument"
 then
-    libreoffice "$FILE"
+    PROGRAM="libreoffice"
 
 else
     echo "Dateityp unbekannt"
+    exit 1
+fi
+
+$PROGRAM "$FILE"
+
+if [ $? -ne 0 ]
+then
+    echo "Fehler beim Starten von $PROGRAM"
     exit 1
 fi
 
